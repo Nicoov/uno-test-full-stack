@@ -53,7 +53,7 @@ export default function Game({ user }: { user: User }) {
         </div>
         <button
           onClick={handleLogout}
-          className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+          className="text-sm hover:text-gray-600 text-black transition-colors"
         >
           Salir
         </button>

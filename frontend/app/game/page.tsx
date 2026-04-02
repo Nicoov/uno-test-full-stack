@@ -1,25 +1,28 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Game from "../../components/Game";
+import { User } from "../../types";
 
 export default function GamePage() {
   const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+  const [ready, setReady] = useState(false);
 
-  const user = useMemo(() => {
-    if (typeof window === "undefined") return null;
+   useEffect(() => {
     const stored = localStorage.getItem("user");
-    return stored ? JSON.parse(stored) : null;
-  }, []);
-
-  useEffect(() => {
-    if (!user) {
+    if (!stored) {
       router.push("/login");
+      return;
     }
-  }, [user, router]);
 
-  if (!user) return null;
+    setUser(JSON.parse(stored));
+    setReady(true);
+  }, [router]);
 
-  return <Game user={user} />;
+  if (!ready) return null;
+
+  return <Game user={user!} />;
 }
