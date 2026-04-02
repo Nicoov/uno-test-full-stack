@@ -7,7 +7,7 @@ import ScoreBoard from "../components/ScoreBoard";
 import History from "./History";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getGameHistory } from "../service/api.mock";
+import { getGameHistory } from "../service/api";
 import Modal from "./Modal";
 
 export default function Game({ user }: { user: User }) {

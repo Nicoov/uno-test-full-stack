@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Card } from "../types";
-import { fetchDeck, saveGameResult } from "../service/api.mock";
-// import { fetchDeck, saveGameResult } from "../service/api";
+import { fetchDeck, saveGameResult } from "../service/api";
 
 const FLIP_DELAY_MS = 1000;
 
