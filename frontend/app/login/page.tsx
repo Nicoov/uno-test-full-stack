@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-// import { findOrCreateUser } from "../../service/api";
-import { findOrCreateUser } from "../../service/api.mock";
+import { findOrCreateUser } from "../../service/api";
+
 
 export default function LoginPage() {
   const router = useRouter();
