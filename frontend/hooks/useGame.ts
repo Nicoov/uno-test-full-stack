@@ -42,7 +42,7 @@ export function useGame(userId: string): UseGameReturn {
   }, [loadDeck]);
 
   useEffect(() => {
-    if (cards.length === 0) return;
+    if (cards.length === 0 || matches === 0) return; 
     const totalPairs = cards.length / 2;
     if (matches === totalPairs) {
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
