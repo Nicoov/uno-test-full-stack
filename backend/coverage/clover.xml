@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1775238310479" clover="3.2.0">
-  <project timestamp="1775238310479" name="All files">
-    <metrics statements="108" coveredstatements="44" conditionals="48" coveredconditionals="21" methods="26" coveredmethods="12" elements="182" coveredelements="77" complexity="0" loc="108" ncloc="108" packages="7" files="17" classes="17"/>
+<coverage generated="1775238965634" clover="3.2.0">
+  <project timestamp="1775238965634" name="All files">
+    <metrics statements="108" coveredstatements="55" conditionals="48" coveredconditionals="25" methods="26" coveredmethods="18" elements="182" coveredelements="98" complexity="0" loc="108" ncloc="108" packages="7" files="17" classes="17"/>
     <package name="src">
       <metrics statements="25" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
       <file name="app.controller.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/app.controller.ts">
@@ -67,7 +67,7 @@
         <line num="3" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="5" type="cond" truecount="3" falsecount="1"/>
-        <line num="19" count="271" type="stmt"/>
+        <line num="19" count="265" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="40" type="stmt"/>
@@ -137,18 +137,18 @@
       </file>
     </package>
     <package name="src.users">
-      <metrics statements="24" coveredstatements="9" conditionals="16" coveredconditionals="9" methods="6" coveredmethods="0"/>
+      <metrics statements="24" coveredstatements="20" conditionals="16" coveredconditionals="13" methods="6" coveredmethods="6"/>
       <file name="users.controller.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/users/users.controller.ts">
-        <metrics statements="9" coveredstatements="6" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="8" count="4" type="cond" truecount="3" falsecount="1"/>
         <line num="11" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
       </file>
       <file name="users.module.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/users/users.module.ts">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -158,18 +158,18 @@
         <line num="9" count="0" type="stmt"/>
       </file>
       <file name="users.service.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/users/users.service.ts">
-        <metrics statements="11" coveredstatements="3" conditionals="8" coveredconditionals="3" methods="3" coveredmethods="0"/>
+        <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="3" falsecount="1"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="8" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.users.dto">

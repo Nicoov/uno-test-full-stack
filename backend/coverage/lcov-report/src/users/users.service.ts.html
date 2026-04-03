@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.46% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.5% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,30 +105,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,21 +140,21 @@ import { CreateUserDto } from './dto/create-user.dto';
 &nbsp;
 @Injectable()
 export class UsersService {
-<span class="fstat-no" title="function not covered" >  constructor(private readonly <span class="cstat-no" title="statement not covered" >p</span>risma: P</span>rismaService<span class="branch-1 cbranch-no" title="branch not covered" >) {}</span>
+  constructor(private readonly prisma: PrismaService<span class="branch-1 cbranch-no" title="branch not covered" >) {}</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>findOrCreate(dto: CreateUserDto) {
-    const existing = <span class="cstat-no" title="statement not covered" >await this.prisma.user.findUnique({</span>
+  async findOrCreate(dto: CreateUserDto) {
+    const existing = await this.prisma.user.findUnique({
       where: { run: dto.run },
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (existing) {</span>
-<span class="cstat-no" title="statement not covered" >      if (existing.name !== dto.name) {</span>
-<span class="cstat-no" title="statement not covered" >        throw new ConflictException('Este RUN ya está registrado con otro nombre');</span>
+    if (existing) {
+      if (existing.name !== dto.name) {
+        throw new ConflictException('Este RUN ya está registrado con otro nombre');
       }
-<span class="cstat-no" title="statement not covered" >      return existing;</span>
+      return existing;
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return this.prisma.user.create({</span>
+    return this.prisma.user.create({
       data: {
         name: dto.name,
         run: dto.run,
@@ -162,8 +162,8 @@ export class UsersService {
     });
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  async </span>findByRun(run: string) {
-<span class="cstat-no" title="statement not covered" >    return await this.prisma.user.findUnique({</span>
+  async findByRun(run: string) {
+    return await this.prisma.user.findUnique({
       where: { run },
     });
   }
@@ -175,7 +175,7 @@ export class UsersService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-03T17:45:10.467Z
+                at 2026-04-03T17:56:05.625Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
