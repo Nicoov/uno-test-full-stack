@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 
@@ -12,6 +13,9 @@ export class UsersService {
     });
 
     if (existing) {
+      if (existing.name !== dto.name) {
+        throw new ConflictException('Este RUN ya está registrado con otro nombre');
+      }
       return existing;
     }
 

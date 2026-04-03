@@ -26,7 +26,8 @@ export default function LoginPage() {
       localStorage.setItem("user", JSON.stringify(user));
       router.push("/game");
     } catch (e) {
-      setError("Ocurrió un error, intenta nuevamente");
+       const error = e as { response?: { data?: { message?: string } } };
+       setError(error?.response?.data?.message || "Ocurrió un error, intenta nuevamente");
     } finally {
       setIsLoading(false);
     }
