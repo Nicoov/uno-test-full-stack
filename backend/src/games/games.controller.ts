@@ -11,7 +11,7 @@ export class GamesController {
     return this.gamesService.create(dto);
   }
 
-  @Get('history/:run')
+  @Get('history')
   async getHistory(@Param('run') run: string) {
     return this.gamesService.getHistoryByRun(run);
   }
