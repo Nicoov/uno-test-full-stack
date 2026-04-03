@@ -31,6 +31,8 @@ export const saveGameResult = async (
 };
 
 export const getGameHistory = async (run: string): Promise<GameResult[]> => {
-  const { data } = await api.get<GameResult[]>(`/games/history/${run}`);
+  const { data } = await api.get<GameResult[]>(`/games/history/`, {
+    params: { run },
+  });
   return data;
 };
