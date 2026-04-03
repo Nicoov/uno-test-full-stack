@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { findOrCreateUser } from "../../service/api";
+import { validateRun } from "../../utils/validateRun";
 
 
 export default function LoginPage() {
@@ -15,6 +16,11 @@ export default function LoginPage() {
   const handleSubmit = async () => {
     if (!name.trim() || !run.trim()) {
       setError("Por favor completa todos los campos");
+      return;
+    }
+
+    if (!validateRun(run.trim())) {
+      setError("RUN inválido. Debe tener el formato 12345678-9");
       return;
     }
 
