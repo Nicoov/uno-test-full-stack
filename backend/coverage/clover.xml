@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1775238965634" clover="3.2.0">
-  <project timestamp="1775238965634" name="All files">
-    <metrics statements="108" coveredstatements="55" conditionals="48" coveredconditionals="25" methods="26" coveredmethods="18" elements="182" coveredelements="98" complexity="0" loc="108" ncloc="108" packages="7" files="17" classes="17"/>
+<coverage generated="1775239200338" clover="3.2.0">
+  <project timestamp="1775239200339" name="All files">
+    <metrics statements="108" coveredstatements="76" conditionals="48" coveredconditionals="34" methods="26" coveredmethods="24" elements="182" coveredelements="134" complexity="0" loc="108" ncloc="108" packages="7" files="17" classes="17"/>
     <package name="src">
       <metrics statements="25" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
       <file name="app.controller.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/app.controller.ts">
@@ -67,7 +67,7 @@
         <line num="3" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="5" type="cond" truecount="3" falsecount="1"/>
-        <line num="19" count="265" type="stmt"/>
+        <line num="19" count="259" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="40" type="stmt"/>
@@ -78,18 +78,18 @@
       </file>
     </package>
     <package name="src.games">
-      <metrics statements="19" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <metrics statements="19" coveredstatements="15" conditionals="12" coveredconditionals="9" methods="6" coveredmethods="6"/>
       <file name="games.controller.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/games/games.controller.ts">
-        <metrics statements="9" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
       </file>
       <file name="games.module.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/games/games.module.ts">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -99,25 +99,25 @@
         <line num="9" count="0" type="stmt"/>
       </file>
       <file name="games.service.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/games/games.service.ts">
-        <metrics statements="6" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.games.dto">
-      <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="create-game.dto.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/games/dto/create-game.dto.ts">
-        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.prisma">
@@ -130,9 +130,9 @@
       </file>
       <file name="prisma.service.ts" path="/Users/nicolasignacio/Desktop/uno-test-full-stack/backend/src/prisma/prisma.service.ts">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
       </file>
     </package>
