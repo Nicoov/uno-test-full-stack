@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateGameDto } from './dto/create-game.dto';
 
 @Injectable()
 export class GamesService {
-    constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async create(dto: CreateGameDto) {
     return await this.prisma.game.create({
