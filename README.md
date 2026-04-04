@@ -1,155 +1,174 @@
-# Full Stack Technical Challenge  
-## Memory / Concentration Game
+# UNO AFP CHALLENGE
 
-Bienvenido/a al desafío técnico Full Stack.
+Full-stack implementation of the classic Memory / Concentration card game, built as a technical challenge for UNO AFP.
 
-Este repositorio corresponde al **punto de partida oficial** del challenge.  
-Para comenzar, debes **hacer un fork de este repositorio** y trabajar únicamente sobre tu fork.
+---
 
-## Objetivo del Desafío
+## Description
 
-Construir una aplicación **Full Stack** que implemente el juego de cartas **Concentration / Memory**, con foco en:
+Users identify themselves with their name and RUN (Chilean ID), then play a card matching game. All results are persisted and users can consult their history of past games.
 
-- Calidad y estructura de código
-- Separación Frontend / Backend
-- Persistencia de datos
-- Pruebas unitarias
-- Dockerización
-- Uso profesional de GitHub (ramas, PRs, CI)
+---
 
-El Backend debe **persistir los resultados finales del juego**, permitiendo consultar un **historial de victorias por RUN**.
+## Tech Stack
 
-## Cómo comenzar
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind CSS |
+| Backend | NestJS 11, TypeScript, Prisma 5 |
+| Database | PostgreSQL 16 |
+| Testing | Vitest (frontend), Jest (backend) |
+| DevOps | Docker, GitHub Actions |
 
-1. Haz **fork** de este repositorio en tu cuenta de GitHub.
-2. Clona **tu fork** localmente.
-3. A partir de ese punto, todo el desarrollo debe realizarse en tu repositorio.
+---
 
-> ⚠️ No se aceptarán PRs ni commits directos sobre este repositorio original.
-
-## Alcance Funcional (Resumen)
-
-### Identificación de Usuario
-- Solicitar nombre y RUN en el primer ingreso.
-- Persistir identidad para evitar duplicidad de RUN.
-- El usuario no debe volver a ingresar sus datos al refrescar.
-
-### Juego
-- Juego de memoria clásico.
-- Máximo 2 cartas volteadas por turno.
-- Contadores de errores y aciertos.
-- Mensaje de finalización con el nombre del usuario.
-
-### Persistencia de Resultados
-- Guardar el resultado final al completar el juego.
-- Consultar victorias pasadas por RUN.
-
-## Arquitectura Esperada
-
-### Frontend
-- React o Next.js
-- TypeScript preferido
-- Tailwind CSS o Ant Design
-
-### Backend
-- NestJS (recomendado) o Express con TypeScript
-- Construye el deck (duplica y mezcla imágenes)
-- Persiste usuarios y resultados
-- Expone APIs para historial por RUN
-
-## API Externa de Imágenes
-
-Las imágenes deben obtenerse desde:
-
+## Project Structure
 ```
-GET https://challenge-uno.vercel.app/api/images
+/
+├── frontend/          # Next.js 16 app
+├── backend/           # NestJS API
+├── docker-compose.yml
+└── .github/
+    └── workflows/
+        └── ci.yml
 ```
 
-El backend es responsable de:
-- Seleccionar imágenes
-- Duplicarlas
-- Mezclarlas (shuffle)
+---
 
-## Testing (Obligatorio)
+## Architecture Decisions
 
 ### Frontend
-- Jest + React Testing Library o Vitest
-- Lógica del juego
-- Actualización de métricas
-- Finalización
-- Render de historial
+- **useGame hook** — all game logic isolated here, components are purely presentational and easy to test
+- **localStorage** — persists user identity across page refreshes without requiring authentication
+- **Centralized service layer** — all API calls go through `service/api.ts`
+- **RUN validation** — Chilean ID format validated on both frontend and backend
 
 ### Backend
-- Jest
-- Construcción del deck
-- Validaciones
-- Persistencia y consultas
+- **Modular NestJS architecture** — `UsersModule`, `DeckModule`, `GamesModule`
+- **Deck built server-side** — images fetched from external API, shuffled and paired in the backend
+- **Global PrismaModule** — single database connection shared across all modules
+- **ConflictException** — thrown when a RUN is registered with a different name
+- **Prisma v5** — chosen over v7 due to breaking changes not worth adopting for this challenge
 
-## Dockerización (Obligatorio)
+---
 
-El proyecto debe levantarse con `docker compose`
+## Running Locally
 
-Requisitos:
-- Dockerfile para Frontend
-- Dockerfile para Backend
-- docker-compose.yml en la raíz
-- Base de datos incluida si aplica
+### Prerequisites
+- Node.js 20+
+- Docker
 
-## Flujo de GitHub (Obligatorio)
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/uno-test-full-stack.git
+cd uno-test-full-stack
+```
 
-### Ramas
-- `main` (sin commits directos)
-- Ramas de feature, por ejemplo:
-  - feature/frontend-game
-  - feature/backend-results
-  - feature/docker-setup
+### 2. Start the database
+```bash
+docker compose up db -d
+```
 
-### Pull Requests
-- Mínimo **3 Pull Requests**
-- Cada PR debe incluir:
-  - Descripción clara del cambio
-  - Motivación técnica
-  - Checklist de calidad
+### 3. Backend
+```bash
+cd backend
+cp .env.example .env
+npm install
+npx prisma migrate dev
+npm run start:dev
+```
 
-### Commits
-- Mensajes en inglés
-- Commits pequeños y coherentes
-- Se recomienda Conventional Commits
+### 4. Frontend
+```bash
+cd frontend
+pnpm install
+pnpm dev
+```
 
-### CI
-- GitHub Actions ejecutando:
-  - Lint
-  - Tests
-- Debe correr en cada PR
+Open `http://localhost:3000`
 
-## Documentación Esperada
+---
 
-El README.md de tu fork debe incluir:
-- Descripción del proyecto
-- Decisiones de arquitectura
-- Instrucciones para ejecutar localmente
-- Instrucciones para ejecutar con Docker
-- Instrucciones para ejecutar tests
-- Flujo de trabajo en GitHub
-- Propuesta de diseño de interfaz
+## Running with Docker
+```bash
+docker compose up --build
+```
 
-## Entregable
+Open `http://localhost:3000`
 
-- Repositorio público (tu fork)
-- Código funcional
-- Pruebas ejecutables
-- Docker operativo
-- README completo
+---
 
-No se aceptan:
-- Archivos comprimidos
-- Capturas de pantalla como reemplazo del código
-- Commits directos en este repositorio base
+## Running Tests
 
-## Consideraciones Finales
+### Frontend
+```bash
+cd frontend
+pnpm test
+pnpm test:coverage
+```
 
-- Todo el código debe estar en **inglés**
-- Se valora claridad, simplicidad y criterio técnico
-- No se espera perfección visual, sí solidez técnica
+### Backend
+```bash
+cd backend
+npm test
+npm run test:cov
+```
 
-Éxito en el desafío.
+---
+
+## GitHub Workflow
+
+### Branch Strategy
+```
+main          ← production, no direct commits
+  └── develop ← integration branch
+        ├── feature/frontend-game
+        ├── feature/backend-core
+        ├── feature/docker-config
+        └── feature/ci-setup
+```
+
+### CI Pipeline
+GitHub Actions runs on every PR:
+- ESLint
+- Unit tests
+
+---
+
+## Interface Design
+
+### Identify Page (`/login`)
+```
+┌─────────────────────┐
+│   Memory Game 🐾    │
+│                     │
+│  Nombre             │
+│  [____________]     │
+│                     │
+│  RUN                │
+│  [____________]     │
+│                     │
+│     [ Jugar ]       │
+└─────────────────────┘
+```
+
+### Game Page (`/game`)
+```
+Memory Game 🐾              [Salir]
+
+  Aciertos: 3/8    Errores: 2
+
+┌──┐ ┌──┐ ┌──┐ ┌──┐
+│🐾│ │🐾│ │🐾│ │🐾│
+└──┘ └──┘ └──┘ └──┘
+┌──┐ ┌──┐ ┌──┐ ┌──┐
+│🐾│ │🐾│ │🐾│ │🐾│
+└──┘ └──┘ └──┘ └──┘
+
+Historial de partidas
+┌──────────┬──────────┬────────┬──────────┐
+│  Fecha   │ Aciertos │ Errores│ Duración │
+├──────────┼──────────┼────────┼──────────┤
+│ 04-04-26 │    8     │   3    │   45s    │
+└──────────┴──────────┴────────┴──────────┘
+```
