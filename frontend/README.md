@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend — UNO AFP CHALLENGE
 
-## Getting Started
+Next.js 16 application for the UNO AFP challenge.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 16.2.2
+- React 19
+- TypeScript 5
+- Tailwind CSS 4
+- Axios 1.14
+- Vitest 4 + Testing Library
+
+## Project Structure
+```
+frontend/
+├── app/
+│   ├── login/page.tsx       # Identify page
+│   └── game/page.tsx        # Game page
+├── components/
+│   ├── Board.tsx            # Card grid
+│   ├── Card.tsx             # Single card with flip animation
+│   ├── ScoreBoard.tsx       # Matches and errors counter
+│   ├── History.tsx          # Past games table
+│   ├── Game.tsx             # Main game component
+│   └── Modal.tsx            # Finish modal
+├── hooks/
+│   └── useGame.ts           # All game logic
+├── service/
+│   └── api.ts               # Backend API calls
+├── types/
+│   └── index.ts             # Shared interfaces
+└── utils/
+    └── validateRun.ts       # RUN format validation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Locally
+```bash
+pnpm install
+pnpm dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+App runs at `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+```
 
-## Learn More
+## Running Tests
+```bash
+pnpm test           # run once
+pnpm test:watch     # watch mode
+pnpm test:coverage  # with coverage
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Key Design Decisions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **useGame hook** — all game logic isolated here, components are purely presentational
+- **localStorage** — persists user identity across page refreshes
+- **RUN validation** — format `12345678-9` validated on frontend and backend
